@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Table</title>
+</head>
+<body style='font-family:"sans-serif"'>
+<h1 style="font-family: sans-serif">Inventory View</h1>
+<table align="left" border="1" style="border-collapse: collapse; font-family: sans-serif; padding-left: 5px; padding-right: 5px">
+    <tr>
+    <th>Widget</th>
+    <th>Packaging</th>
+    <th>Customer</th>
+    <th>Price</th>
+    <th>Supplier</th>
+    <th>Cost</th>
+    <th>Warehouse</th>
+    <th>Quantity</th>
+    <th>Min Quantity</th>
+    </tr>
+    {% for sale in sales %}
+        <tr>
+        <th style="font-weight: lighter">{{ sale.packaging.widget.widget }}</th>
+        <th style="font-weight: lighter">{{ sale.packaging.type }} of {{ sale.packaging.size }}</th>
+        <th style="font-weight: lighter">{{ sale.customer.name }}</th>
+        <th style="font-weight: lighter">${{ sale.price }}</th>
+        <th style="font-weight: lighter">{{ sale.packaging.widget.supplier.name }}</th>
+        <th style="font-weight: lighter">${{ sale.packaging.widget.cost }}</th>
+        <th style="font-weight: lighter">{{ sale.packaging.widget.warehouse.name }}</th>
+        <th style="font-weight: lighter">{{ sale.packaging.widget.quantity }}</th>
+        <th style="font-weight: lighter">{{ sale.packaging.widget.minimum_quantity }}</th>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
