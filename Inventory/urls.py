@@ -20,9 +20,16 @@ from Widget import views
 
 # Create a router for widgets
 router = DefaultRouter()
+router.register('Supplier', views.SupplierViewSet)
+router.register('Warehouse', views.WarehouseViewSet)
 router.register('Widget', views.WidgetViewSet)
+router.register('Packaging', views.PackagingViewSet)
+router.register('Customer', views.CustomerViewSet)
+router.register('Sales', views.SalesViewSet)
+router.register('FullDetail', views.FullDetailViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('table/', views.table, name='table')
 ]

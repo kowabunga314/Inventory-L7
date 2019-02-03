@@ -1,0 +1,49 @@
+## Inventory App Description ##
+This project contains a web application that allows an organization to perform CRUD operations on an inventory database. The instructions contained in this document will allow the user to install the application onto a server, but in order to run in a production environment, a middleware service such as Apache/ModWSGI or Nginx/Gunicorn should be used.
+In addition to the specified functionality, this web app is well-positioned to connect to an ordering service. Since we already know the supplier, current inventory quantity, and the minimum quantity, we can place an order for the widget to the supplier when the quantity drops below the minimum.
+
+
+## Browsable API ##
+This web service was built using Django REST Framework and includes a browsable API located at the project's root URL. Users can view each table in the schema as JSON and perform CRUD operations. These operations can also be performed using an HTTP client such as Postman. Additionaly, a full detail view has been provided that displays inter-table relationships as nested JSON.
+
+## Table Page ##
+By navigating to the /table endpoint in a browser, users can view inventory data as a single table (up to 50 records).
+
+
+## GitHub Repository Link ##
+https://github.com/kowabunga314/Inventory-L7.git
+
+
+## Inventory App Requirements ##
+- Python 3.7
+	- virtualenv
+- Git
+- Sqlite
+
+
+## Command Line Installation Instructions ##
+1. Create a folder to hold project and navigate into it
+	> mkdir inventory
+	> cd inventory
+2. Clone project into folder
+	> git clone https://github.com/kowabunga314/Inventory-L7.git
+3. Ensure virtualenv is installed
+	> pip install virtualenv
+4. Create virtual environment next to the project
+	> mkdir venv
+	> virtualenv venv/Inventory-L7
+5. Activate virtual environment
+	> source venv/Inventory-L7/bin/activate
+6. Navigate into project directory
+	> cd Inventory-L7
+7. Install project dependencies
+	> pip install -r requirements.txt
+8. Migrate Django database files to sqlite database
+	> python manage.py migrate
+9. Start Django server
+	> python manage.py runserver 127.0.0.1:8000
+9.5. Running server on a different address
+	- add your server's hostname or IP to ALLOWED_HOSTS in Inventory/settings.py
+	- replace the home IP in the run command with your server's hostname
+
+
